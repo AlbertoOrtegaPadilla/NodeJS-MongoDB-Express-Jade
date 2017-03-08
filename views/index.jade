@@ -1,0 +1,28 @@
+extends layout
+block contenido
+  h1(class="center-align") Listado de Usuarios
+  
+  div(class="container")
+    table(class="striped centered")
+      thead
+        tr
+          th Nombre
+          th Apellido
+          th Edad
+          th Pais
+          th 
+            a(class="btn-floating btn-large waves-effect waves-light green" href="formulario")
+              i(class="material-icons") input
+      tbody
+        for u in usuarios
+          tr
+            td #{u.nombre}
+            td #{u.apellido}
+            td #{u.edad}
+            td #{u.pais}
+            td 
+              a(class="btn-floating btn-large waves-effect waves-light blue" href="modificar?id=#{u._id}") 
+                i(class="material-icons") edit
+            td
+              a(class="btn-floating btn-large waves-effect waves-light red" href="remove?id=#{u._id}") 
+                i(class="material-icons") delete
